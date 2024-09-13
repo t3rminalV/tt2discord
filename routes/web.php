@@ -45,7 +45,7 @@ Route::post('/hook', function (Request $request) {
             "username" => "Ticket Tailor",
             "embeds" => [
                 [
-                    "title" => "New Order!",
+                    "title" => "New Order - ".$eventName,
                     "color" => 12845311,
                     "fields" => $embedFields
                 ]
