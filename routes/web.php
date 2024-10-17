@@ -32,10 +32,11 @@ Route::post('/hook', function (Request $request) {
 
         foreach ($ticketTypes as $ticketType) {
             if (array_key_exists($ticketType['id'], $ticketCounts)) {
+                $ticketsSold = $ticketType['quantity_total'] - $ticketType['quantity'];
                 array_push($embedFields,
                     [
                         "name" => $ticketType['name']." x".$ticketCounts[$ticketType['id']],
-                        "value" =>  $ticketType['quantity']."/".$ticketType['quantity_total']." remaining",
+                        "value" =>  $ticketType['quantity']."/".$ticketType['quantity_total']." remaining, ".$ticketsSold." sold",
                     ]);
             }
         }
